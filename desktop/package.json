@@ -1,0 +1,42 @@
+{
+  "name": "trading-bot-desktop",
+  "version": "1.0.0",
+  "description": "Advanced Trading Bot Desktop Application",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "electron .",
+    "build": "electron-builder",
+    "start": "electron-builder --win --publish never"
+  },
+  "dependencies": {
+    "electron-is-dev": "^2.0.0"
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "build": {
+    "appId": "com.tradingbot.app",
+    "productName": "Trading Bot",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "certificateFile": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
